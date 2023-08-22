@@ -1,0 +1,23 @@
+server:
+  port: "${SERVER_PORT:5000}"
+
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 1000
+            readTimeout: 10000
+            loggerLevel: BASIC
+      circuitbreaker:
+        enabled: true
+        alphanumeric-ids:
+          enabled: true
+
+            
+logging.level.com.anycompany.similarproducts.adapter.rest.out.ProductFeignClient: DEBUG
+        
+rest-client:
+  product-client:
+    url: "${CLIENT_URL:http://localhost:3001/product/}"
